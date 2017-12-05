@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.PageObjects;
-using PracticeSpecFlowProj.PageObject;
+using SpecFlowNUnitProject.Base;
 using System.Threading;
 
 
@@ -32,20 +33,30 @@ namespace SeleniumNUnitProj.PageObject
         public IWebElement GenerateAlertButton;
         private By generateAlertBtnBy = By.Name("generate");
 
+        [FindsBy(How = How.Id, Using = "Automation Tools")]
+        public IWebElement AutomationToolsMenuItem;
+        private By automationToolsMenuItemBy = By.Id("Automation Tools");
+        
+       [FindsBy(How = How.Id, Using = "Selenium")]
+        public IWebElement SeleniumMenuSubItem;
+        private By SeleniumMenuSubItemBy = By.Id("Selenium");
+
         public void PressGenerateAlert() {
             WaitElementToBeVisible(generateAlertBtnBy);
-         //   GenerateAlertButton.Weclick();
-             GenerateAlertButton.Click();
-            //IAlert alert = helper.SwitchToAlert();
-            //string alertText = alert.Text;
-           // Assert.IsTrue(alertText.Contains("Javascript alert"));
-            //alert.Dismiss();
-            //alertText = alert.Text;
-            ////Assert.IsTrue(alertText.Contains("You pressed Cancel"));
-            //alert.Accept();
-           // Assert.IsTrue(mainPage.MainHeading().Displayed, "Main Page Not Displayed..!");
+       //   GenerateAlertButton.Weclick();
+            GenerateAlertButton.Click();
+         // Assert.IsTrue(alertText.Contains("Javascript alert"));
+        ////Assert.IsTrue(alertText.Contains("You pressed Cancel"));
+         // Assert.IsTrue(mainPage.MainHeading().Displayed, "Main Page Not Displayed..!");
+        }
+        public void MoveToAutomationToolMenu() {
+            moveToElement(automationToolsMenuItemBy);
+            WaitElementToBeVisible(SeleniumMenuSubItemBy, 5);
         }
 
+        public void SeleniumElementIsDisplayed() {
+            ElementIsDisplayed(SeleniumMenuSubItemBy);
+        }
         public string GetAlertText() {
             Thread.Sleep(2000);
             IAlert alert = SwitchToAlert();

@@ -1,10 +1,12 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
-namespace PracticeSpecFlowProj.PageObject
+namespace SpecFlowNUnitProject.Base
 {
    public class BasePage
     {
@@ -19,8 +21,7 @@ namespace PracticeSpecFlowProj.PageObject
             //return pageClass;
         }
 
-     
-// ********Helper Methods***************
+        // **************************Helper Methods***************
         public string GetCurrentWindowHandle()
         {
             return driver.CurrentWindowHandle;
@@ -69,8 +70,17 @@ namespace PracticeSpecFlowProj.PageObject
         {
             driver.Close();
         }
-    
-        //************Base Methods**********
+        public void moveToElement(By locator, int wait = 10)
+        {
+            WaitElementToBeVisible(locator, wait);
+            new Actions(driver).MoveToElement(GetElement(locator)).Perform();
+
+        }
+        public IWebElement GetElement(By locator)
+        {
+            return driver.FindElement(locator);
+        }
+        //*********************Base Wait Methods***************
 
         public IWebElement WaitElementToBeVisible(By by, double waitTime = WAiT_TIME)
         {
@@ -96,6 +106,17 @@ namespace PracticeSpecFlowProj.PageObject
             return wait.Until(ExpectedConditions.PresenceOfAllElementsLocatedBy(by));
         }
 
+        public void HighlightElement(By locator) {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            js.ExecuteScript("arguments[0].style.border='4px solid blue'", GetElement(locator));
+            Thread.Sleep(2000);
+        }
 
+        public bool ElementIsDisplayed(By locator, double waitTime = WAiT_TIME)
+        {
+            WaitElementToBeVisible(locator, waitTime);
+            HighlightElement(locator);
+            return GetElement(locator).Displayed;
+        }
     }
 }

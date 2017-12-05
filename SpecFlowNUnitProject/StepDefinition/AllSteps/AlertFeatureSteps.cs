@@ -2,7 +2,7 @@
 using System;
 using TechTalk.SpecFlow;
 
-namespace PracticeSpecFlowProj.StepDefinition
+namespace SpecFlowNUnitProject.StepDefinition
 {
     [Binding]
     public class AlertFeatureSteps : BaseStep

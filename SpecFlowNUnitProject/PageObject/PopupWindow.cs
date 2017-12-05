@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
-using PracticeSpecFlowProj.PageObject;
+using SpecFlowNUnitProject.Base;
 
 namespace SeleniumNUnitProj.PageObject
 {

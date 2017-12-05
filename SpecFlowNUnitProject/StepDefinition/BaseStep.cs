@@ -1,10 +1,9 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using SeleniumNUnitProj.PageObject;
+using SpecFlowNUnitProject.PageObject;
 using TechTalk.SpecFlow;
-using PracticeSpecFlowProj.PageObject;
 
-namespace PracticeSpecFlowProj
+namespace SpecFlowNUnitProject.StepDefinition
 {
     public class BaseStep :Steps
     {

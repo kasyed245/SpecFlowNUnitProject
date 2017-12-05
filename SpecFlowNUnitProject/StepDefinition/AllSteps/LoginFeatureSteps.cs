@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Threading;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
-using SeleniumNUnitProj.PageObject;
 
-namespace PracticeSpecFlowProj.StepDefinition
+
+namespace SpecFlowNUnitProject.StepDefinition
 {
     [Binding]
     public class LoginFeatureSteps : BaseStep

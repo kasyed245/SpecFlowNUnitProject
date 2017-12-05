@@ -1,8 +1,8 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
-using PracticeSpecFlowProj.PageObject;
+using SpecFlowNUnitProject.Base;
 
-namespace SeleniumNUnitProj.PageObject
+namespace SpecFlowNUnitProject.PageObject
 {
     public class LoginPage : BasePage //: WaitCommonClass
     {

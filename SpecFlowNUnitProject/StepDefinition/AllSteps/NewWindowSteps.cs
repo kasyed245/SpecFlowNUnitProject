@@ -1,10 +1,9 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
-using PracticeSpecFlowProj;
 using System;
 using TechTalk.SpecFlow;
 
-namespace SpecFlowNUnitProject 
+namespace SpecFlowNUnitProject.StepDefinition
 {
     [Binding]
     public class NewWindowSteps : BaseStep

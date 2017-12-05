@@ -1,12 +1,10 @@
-﻿using NUnit.Framework;
-using OpenQA.Selenium;
-using SeleniumNUnitProj.PageObject;
+﻿using OpenQA.Selenium;
 using System;
 using System.Threading;
 using TechTalk.SpecFlow;
 
 
-namespace PracticeSpecFlowProj.StepDefinition
+namespace SpecFlowNUnitProject.StepDefinition
 {
     [Binding]
     public class RegisterFormSteps :BaseStep
